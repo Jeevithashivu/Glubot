@@ -1,0 +1,134 @@
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+  
+  
+intents:
+  - greet
+  - goodbye
+  - diagnoise_diabetes
+  - let_start
+  - age_details
+  - BMI_calculation
+  - family_history
+  - Gender_type
+  - smoker_status
+  - drink_status
+  - lets_continue
+
+
+forms:
+  - diabetic_form1
+  - diabetic_result
+  
+entities:
+  - details
+  - weight
+  - height1
+  - famh
+  - gender
+  - smoke
+  - drink
+  - BMI
+  - dialect
+ 
+  
+actions:
+ - action_BMI
+  
+slots:
+ details:
+  type: unfeaturized
+ weight:
+  type: unfeaturized
+ height1:
+  type: unfeaturized
+ famh:
+  type: unfeaturized
+ gender:
+  type: unfeaturized
+ smoke:
+  type: unfeaturized
+ drink:
+  type: unfeaturized
+ BMI:
+  type: unfeaturized
+ dialect:
+  type: unfeaturized
+ 
+responses:
+  utter_greet:
+  - text: "Hello! I am Glubot, I am not a doctor, I am a robot. I hope I can be of assistance for diabetes."
+  utter_greetc:
+  - text: "Alright! Here's how it works: I'll ask you simple yes-no and multiple choice questions."
+  utter_greetb:
+  - text: "Then, I'll consult my database and let you know about the further evaluation from the doctor."
+
+  utter_goodbye:
+  - text: "Bye"
+
+  
+  utter_ready:
+  - text: "Are you ready! let's start?"
+  
+  utter_Figure:
+  - text: "Great figure!"
+  
+  
+  utter_ask_details:
+  - text: "How old are you in human years?"
+  
+  utter_ask_BMI:
+  - text: "Don't get me wrong! Tell me your weight in kg and height in cm.\n For example 50 kg and 160 cm"
+  
+  utter_ask_gender:
+  - text: "To which gender do you identify most?"
+    buttons:
+    - title: "Female"
+      payload: '/Gender_type{"gender": "Female"}'
+    - title: "Male"
+      payload: '/Gender_type{"gender": "Male"}' 
+   
+  
+  utter_ask_smoke:
+  - text: "What about cigarrates? Do you ever smoke them?"
+    buttons:
+    - title: "Everyday"
+      payload: '/smoker_status{"smoke": "Everyday"}'
+    - title: "Regularly"
+      payload: '/smoker_status{"smoke": "Regularly"}' 
+    - title: "Never"
+      payload: '/smoker_status{"smoke": "Never"}' 
+      
+  utter_submit:
+  - text: "All done!"
+  
+  utter_last_value:
+  - text: "Consulting my database now about your answers. one sec.."
+  
+  utter_dialect_value:
+  - text: "I have compared your answers to my database. \n Based on your answers,your risk of having diabetes is {dialect}"
+  
+  utter_ask_drink:
+  - text: "How often do you consume alcohol?"
+    buttons:
+    - title: "Everyday"
+      payload: '/drink_status{"drink": "Everyday"}'
+    - title: "Regularly"
+      payload: '/drink_status{"drink": "Regularly"}' 
+    - title: "Never"
+      payload: '/drink_status{"drink": "Never"}' 
+      
+  
+      
+  utter_ask_famh:
+  - text: "Do you have any family members with diabetes?"
+    buttons:
+    - title: "Yes"
+      payload: '/family_history{"famh": "Yes"}'
+    - title: "No"
+      payload: '/family_history{"famh": "No"}'
+  
+  
+  
+
